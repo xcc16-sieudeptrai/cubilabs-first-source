@@ -1,0 +1,17 @@
+const express = require('express');
+const app = express();
+const port = 3000;
+const linkRoutes = require('./routes/link.route');
+
+app.get('/links', linkRoutes);
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+app.use((req, res) => {
+  res.status(404).send('<script>window.onload = function(){document.querySelector(".cont_principal").className= "cont_principal cont_error_active";}</script><style>.cont_error,.cont_principal{width:100%;position:absolute}.cont_error>h1,.cont_error>p{font-family:Lato,sans-serif;position:relative}.cont_aura_1,.cont_aura_2,.cont_error,.cont_principal{position:absolute}.cont_error_active>.cont_aura_1,.cont_error_active>.cont_aura_2{animation-duration:4s;animation-timing-function:linear;animation-iteration-count:infinite;animation-direction:alternate}.link{    font-family: Lato, sans-serif;position:relative;color:#0b76ff;text-decoration:none;font-weight:600;padding-bottom:2px}.link::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:linear-gradient(90deg,#0b76ff,#7a4cff);transition:width .28s ease;border-radius:2px}.link:hover::after,.link:focus::after{width:100%}.link:focus{outline:none;box-shadow:0 0 0 3px rgb(11 118 255 / .12)}*{margin:0 auto;padding:0;text-align:center}body{background-color:#d4d9ed}.cont_principal{height:100%;overflow:hidden}.cont_error{height:300px;top:50%;margin-top:-150px}.cont_error>h1{font-weight:400;font-size:150px;color:#fff;left:-100%;transition:.5s}.cont_error>p{font-weight:300;font-size:24px;letter-spacing:5px;color:#9294ae;left:100%;transition:.5s 0.5s;-webkit-transition:.5s 0.5s}.cont_aura_1{width:300px;height:120%;top:25px;right:-340px;background-color:#8a65df;box-shadow:0 0 60px 20px rgba(137,100,222,.5);-webkit-transition:.5s;transition:.5s}.cont_aura_2{width:100%;height:300px;right:-10%;bottom:-301px;background-color:#8b65e4;box-shadow:0 0 60px 10px rgba(131,95,214,.5),0 0 20px 0 rgba(0,0,0,.1);z-index:5;transition:.5s;-webkit-transition:.5s}.cont_error_active>.cont_error>h1,.cont_error_active>.cont_error>p{left:0}.cont_error_active>.cont_aura_2{animation-name:animation_error_2;transform:rotate(-20deg)}.cont_error_active>.cont_aura_1{transform:rotate(20deg);right:-170px;animation-name:animation_error_1}@-webkit-keyframes animation_error_1{from{-webkit-transform:rotate(20deg);transform:rotate(20deg)}to{-webkit-transform:rotate(25deg);transform:rotate(25deg)}}@-o-keyframes animation_error_1{from{-webkit-transform:rotate(20deg);transform:rotate(20deg)}to{-webkit-transform:rotate(25deg);transform:rotate(25deg)}}@-moz-keyframes animation_error_1{from{-webkit-transform:rotate(20deg);transform:rotate(20deg)}to{-webkit-transform:rotate(25deg);transform:rotate(25deg)}}@keyframes animation_error_1{from{-webkit-transform:rotate(20deg);transform:rotate(20deg)}to{-webkit-transform:rotate(25deg);transform:rotate(25deg)}}@-webkit-keyframes animation_error_2{from{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}to{-webkit-transform:rotate(-20deg);transform:rotate(-20deg)}}@-o-keyframes animation_error_2{from{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}to{-webkit-transform:rotate(-20deg);transform:rotate(-20deg)}}to{-webkit-transform:rotate(-20deg);transform:rotate(-20deg)}</style><div class="cont_principal"><div class="cont_error"><h1>Chịu chết</h1><p>Link này không dùng được.</p><a href="/" class="link">Về lại trang chính</div><div class="cont_aura_1"></div><div class="cont_aura_2"></div></div>');
+});
+
+app.listen(port, () => {
+  console.log(`>> http://localhost:${port}`);
+}); 
